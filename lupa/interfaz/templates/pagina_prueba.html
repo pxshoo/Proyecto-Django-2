@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="Style">
+  <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+  <link rel="icon" href="{% static 'img/image-modified.png' %}">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  
+
+
+  <title>LuPa</title>
+</head>
+
+<body>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <header>
+    <h2 id="titulo">LuPa</h2>
+  </header>
+
+  <nav class="opciones">
+    {% if request.session.usuario %}
+        <a href="{% url 'prueba' %}">Inicio</a>
+        <a href="{% url 'prueba' %}">Juegos</a>
+        <a href="{% url 'nosotros' %}">Sobre Nosotros</a>
+        <a href="{% url 'cerrar_sesion' %}">Cerrar sesión</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Registrar</a>
+        <a href="{% url 'prueba' %}">Inicio</a>
+        <a href="{% url 'prueba' %}">Juegos</a>
+        <a href="{% url 'nosotros' %}">Sobre Nosotros</a>
+    {% endif %}
+  </nav>
+  
+  <div id="container">
+    <div class="toggle"></div>
+    <script src="{% static 'js/JavaScript.js' %}"></script>
+
+
+  </div>
+  <style>
+    /* Add some basic styling */
+    body { font-family: Arial, sans-serif; margin: 20px; }
+        .game { margin-bottom: 40px; }
+        .game img { width: 200px; height: auto; }
+        .game iframe { width: 100%; height: 300px; }
+  </style>
+  
+    <h1>Game Database</h1>
+    <div id="games"></div>
+    <script src="{% static 'js/Shark.js' %}"></script>
+
+  </div>
+
+
+  <footer>
+    <div class="footer-container">
+      <p class="footer">Informacion de contacto</p>
+      <div class="socials-and-image">
+        <ul class="socials">
+          <li><a href="https://github.com/scruffycookie/Prueba-1-"><i class="fa fa-github"></i></a></li>
+          <li><a href="https://cl.linkedin.com/company/video-games-chile"><i class="fa fa-linkedin-square"></i></a></li>
+          <li><a href="https://www.instagram.com/pxshoo/"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+        <div class="image-container">
+          <img src="{% static 'img/image-modified.png' %}" alt="about image" class="about__img">
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p class="footer__l">Copyright &copy; 2024 <br> Bringing your dreams to reality.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- External JavaScript file -->
+</body>
+</html>
